@@ -5,33 +5,28 @@ Institute: IITJ
 Course: SDE  
 
 ## Overview
-AutoDoc automates REST API documentation and test-case generation for FastAPI projects.  
-It includes a fully offline AI-like summarizer requiring no API keys.
+AutoDoc automatically extracts FastAPI routes and generates:
 
-## Features
-- Extracts FastAPI routes
-- Generates Markdown documentation
-- Creates OpenAPI JSON spec
-- Suggests test cases
-- 100% offline pseudo-AI summarizer
-
-## How to Run
-pip install fastapi uvicorn  
-python run_autodoc.py
-
-## Generated Files
 - API_DOCUMENTATION.md  
 - openapi.json  
 - test_cases.json  
 
-## Project Structure
-ai_engine.py  
-autodoc_core.py  
-sample_api.py  
-run_autodoc.py  
+A fully offline pseudo-AI summarizer is used to generate human-readable endpoint summaries.
 
-## Licence
-For academic use only
+## Installation
+python -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn pydantic
+
+## Usage
+python run_autodoc.py
+
+## Optional: Run API
+uvicorn sample_api:app --reload
+
+## No external LLMs used
+The project is fully offline and safe for academic submission.
+
 
 
 ```bash

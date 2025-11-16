@@ -1,24 +1,21 @@
-
 def llm_generate_summary(text: str) -> str:
+    """
+    Produce a short, human-readable summary for an endpoint description.
+    This is a rule-based summarizer designed for offline use in academic submissions.
+    """
+    if not text or not text.strip():
+        return "This endpoint performs a basic API operation."
 
-    if not text or text.strip() == "":
-        return "This endpoint provides a straightforward API operation."
+    desc = " ".join(text.strip().split())
 
-    # Basic heuristics to generate summaries
-    text = text.strip()
+    # shorten long text
+    if len(desc) > 140:
+        desc = desc[:140].rsplit(" ", 1)[0] + "..."
 
-    # If docstring is long, shorten it
-    if len(text) > 120:
-        text = text[:120].rsplit(" ", 1)[0] + "..."
+    first_char = desc[0].lower()
+    rest = desc[1:] if len(desc) > 1 else ""
 
-    # Produce a pseudo-AI summary
-    summary = (
-        "In summary, this endpoint " +
-        text.replace("Returns", "returns")
-            .replace("This endpoint", "it")
-            .replace("the endpoint", "it")
-    )
-
+    summary = f"In summary, this endpoint {first_char}{rest}"
     if not summary.endswith("."):
         summary += "."
 
