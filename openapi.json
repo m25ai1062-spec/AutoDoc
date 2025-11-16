@@ -1,0 +1,17 @@
+{
+  "openapi": "3.1.0",
+  "paths": {
+    "/hello": {
+      "get": {
+        "summary": "Returns a greeting message.",
+        "operationId": "hello"
+      }
+    },
+    "/echo": {
+      "post": {
+        "summary": "Returns whatever data you send (simple echo).",
+        "operationId": "echo"
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@ def run():
     routes = extract_routes(app)
 
     # Write documentation
-    with open("API_DOCUMENTATION.md", "w", encoding="utf-8") as f:
+    with open("../API_DOCUMENTATION.md", "w", encoding="utf-8") as f:
         f.write(generate_markdown(routes))
 
     # Write OpenAPI JSON
