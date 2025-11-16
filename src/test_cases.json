@@ -2,17 +2,71 @@
   "tests": [
     {
       "endpoint": "/hello",
-      "methods": [
-        "GET"
-      ],
-      "ai_suggested_tests": "In summary, this endpoint Generate 3 useful test cases for the following API endpoint:\n{'path': '/hello', 'methods': ['GET'], 'name': 'hello',..."
+      "methods": ["GET"],
+      "ai_suggested_tests": [
+        {
+          "test_name": "Test successful GET /hello",
+          "description": "Verify that the /hello endpoint returns a 200 response with expected message.",
+          "input": null,
+          "expected_output": {
+            "msg": "Hello World"
+          },
+          "expected_status": 200
+        },
+        {
+          "test_name": "Test /hello with unsupported POST method",
+          "description": "Ensure the endpoint rejects unsupported HTTP methods.",
+          "input": null,
+          "expected_output": {
+            "detail": "Method Not Allowed"
+          },
+          "expected_status": 405
+        },
+        {
+          "test_name": "Test /hello response format",
+          "description": "Verify that the response contains a 'msg' field and is in JSON format.",
+          "input": null,
+          "expected_output": "JSON object with 'msg' key",
+          "expected_status": 200
+        }
+      ]
     },
     {
       "endpoint": "/echo",
-      "methods": [
-        "POST"
-      ],
-      "ai_suggested_tests": "In summary, this endpoint Generate 3 useful test cases for the following API endpoint:\n{'path': '/echo', 'methods': ['POST'], 'name': 'echo',..."
+      "methods": ["POST"],
+      "ai_suggested_tests": [
+        {
+          "test_name": "Test successful POST /echo",
+          "description": "Send a valid JSON payload and ensure the API echoes it back.",
+          "input": {
+            "name": "Alice",
+            "age": 25
+          },
+          "expected_output": {
+            "received": {
+              "name": "Alice",
+              "age": 25
+            }
+          },
+          "expected_status": 200
+        },
+        {
+          "test_name": "Test /echo with invalid JSON",
+          "description": "Verify the endpoint returns a 422 error when input is malformed or missing required fields.",
+          "input": "INVALID_JSON",
+          "expected_output": "Unprocessable Entity error",
+          "expected_status": 422
+        },
+        {
+          "test_name": "Test /echo with GET method",
+          "description": "Ensure the endpoint rejects unsupported methods for data submission.",
+          "input": null,
+          "expected_output": {
+            "detail": "Method Not Allowed"
+          },
+          "expected_status": 405
+        }
+      ]
     }
   ]
 }
