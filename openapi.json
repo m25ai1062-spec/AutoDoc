@@ -7,6 +7,12 @@
         "operationId": "hello"
       }
     },
+    "/hello/{name}": {
+      "get": {
+        "summary": "Returns a greeting message with name.",
+        "operationId": "hello , Vivek!"
+      }
+    },
     "/echo": {
       "post": {
         "summary": "Returns whatever data you send (simple echo).",
