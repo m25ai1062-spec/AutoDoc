@@ -3,19 +3,19 @@
   "paths": {
     "/hello": {
       "get": {
-        "summary": "Returns a greeting message.",
+        "summary": "Returns a simple greeting message.\nUseful for testing basic GET requests and server health.",
         "operationId": "hello"
       }
     },
     "/hello/{name}": {
       "get": {
-        "summary": "Returns a greeting message with name.",
-        "operationId": "hello , Vivek!"
+        "summary": "Returns a personalized greeting message using path parameters.",
+        "operationId": "hello_user"
       }
     },
     "/echo": {
       "post": {
-        "summary": "Returns whatever data you send (simple echo).",
+        "summary": "Echoes back the JSON payload provided by the user.\nValidates input using a Pydantic model.",
         "operationId": "echo"
       }
     }

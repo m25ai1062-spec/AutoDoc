@@ -1,0 +1,77 @@
+{
+  "tests": [
+    {
+      "endpoint": "/hello",
+      "methods": [
+        "GET"
+      ],
+      "ai_suggested_tests": [
+        {
+          "test_name": "Test successful GET /hello",
+          "method": "GET",
+          "input": null,
+          "expected_status": 200,
+          "expected_output": "JSON object with expected fields"
+        },
+        {
+          "test_name": "Test /hello rejects POST",
+          "method": "POST",
+          "expected_status": 405,
+          "expected_output": "Method Not Allowed"
+        }
+      ]
+    },
+    {
+      "endpoint": "/hello/{name}",
+      "methods": [
+        "GET"
+      ],
+      "ai_suggested_tests": [
+        {
+          "test_name": "Test successful GET /hello/{name}",
+          "method": "GET",
+          "input": null,
+          "expected_status": 200,
+          "expected_output": "JSON object with expected fields"
+        },
+        {
+          "test_name": "Test /hello/{name} rejects POST",
+          "method": "POST",
+          "expected_status": 405,
+          "expected_output": "Method Not Allowed"
+        }
+      ]
+    },
+    {
+      "endpoint": "/echo",
+      "methods": [
+        "POST"
+      ],
+      "ai_suggested_tests": [
+        {
+          "test_name": "Test successful POST /echo",
+          "method": "POST",
+          "input": {
+            "name": "Alice",
+            "age": 25
+          },
+          "expected_status": 200,
+          "expected_output": "received: payload echoed back"
+        },
+        {
+          "test_name": "Test POST /echo with invalid payload",
+          "method": "POST",
+          "input": "INVALID_JSON",
+          "expected_status": 422,
+          "expected_output": "Unprocessable Entity"
+        },
+        {
+          "test_name": "Test /echo rejects GET",
+          "method": "GET",
+          "expected_status": 405,
+          "expected_output": "Method Not Allowed"
+        }
+      ]
+    }
+  ]
+}
