@@ -6,6 +6,12 @@
 **Methods:** GET
 **Original Docstring:** Returns a greeting message.
 
+## hello {name}
+**AI Summary:** In summary, this endpoint returns a greeting message.
+**Path:** `/hello/{name}`
+**Methods:** GET
+**Original Docstring:** Returns a greeting message with name.
+
 ## echo
 **AI Summary:** In summary, this endpoint returns whatever data you send (simple echo).
 **Path:** `/echo`
